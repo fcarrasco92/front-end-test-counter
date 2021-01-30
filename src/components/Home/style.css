@@ -1,0 +1,23 @@
+.home {
+    text-align: center;
+}
+
+.image-logo {
+    margin-top: 115px;
+}
+
+.title-text {
+    margin: 0 auto;
+    margin-top: 103px;
+    width: 314px;
+    height: 132px;
+}
+
+.title-text>p {
+    margin-top: 20px;
+}
+
+.get-started {
+    margin-top: 95px;
+    margin-bottom: 108px;
+}

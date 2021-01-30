@@ -1,0 +1,9 @@
+.layout {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    max-width: 420px;
+    width: 100%;
+    border: 6px #FF9500 solid;
+}
