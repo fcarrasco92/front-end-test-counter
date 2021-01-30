@@ -1,0 +1,39 @@
+:root {
+    --primary: #FF9500;
+    --danger: #FF3B30;
+    --white: #ffffff;
+}
+
+.btn {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+
+/* Button colors and styles */
+
+.btn--primary--solid {
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+}
+
+
+/* Button sizes */
+
+.btn--small {
+    padding: 10px 20px;
+    font-size: 18px;
+}
+
+.btn--medium {
+    padding: 8px 24px 8px 24px;
+    font-size: 17px;
+}
