@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Button, STYLES, SIZES } from "../UI/Button/Button";
 import logo from "../../assets/images/logo.svg";
 import "./style.css";
@@ -16,9 +17,11 @@ const Home = () => {
         </p>
       </div>
       <div className="get-started">
-        <Button buttonStyle={STYLES.primary} buttonSize={SIZES.medium}>
-          Get started
-        </Button>
+        <Link to="/counter">
+          <Button buttonStyle={STYLES.primary} buttonSize={SIZES.medium}>
+            Get started
+          </Button>
+        </Link>
       </div>
     </div>
   );
