@@ -1,0 +1,26 @@
+hr {
+    color: rgba(0, 0, 0, 0.1)
+}
+
+.section-plus {
+    font-size: 20px;
+}
+
+.section-plus>button {
+    float: right;
+    margin: 15px 16px 15px 0;
+}
+
+.section-content {
+    height: 725px;
+}
+
+.content-information {
+    height: 90%;
+    display: flex;
+    align-items: center
+}
+
+.content-detail {
+    margin: 0 auto;
+}
