@@ -1,12 +1,12 @@
 import { Route, Switch } from "react-router-dom";
 import Home from "../components/Home/Home";
-import Counter from "../components/Counter/Counter";
+import Content from "../components/Content/Content";
 
 const Routes = () => {
   return (
     <Switch>
       <Route exact path="/" component={Home} />
-      <Route exact path="/counter" component={Counter} />
+      <Route exact path="/content" component={Content} />
     </Switch>
   );
 };

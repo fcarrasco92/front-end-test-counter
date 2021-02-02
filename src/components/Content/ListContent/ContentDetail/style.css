@@ -1,0 +1,19 @@
+.content-detail-information {
+    /* border: 1px black solid; */
+    /* padding-top: 23px;
+    padding-bottom: 21px; */
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+.content-title {
+    margin: 23px 0 21px 24px;
+    width: 60%;
+}
+
+.counter-content {
+    display: flex;
+    align-items: flex-end;
+}

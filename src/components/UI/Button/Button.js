@@ -2,19 +2,29 @@ import React from "react";
 import "./style.css";
 
 const STYLES = {
-  primary: "btn--primary--solid",
-  warning: "btn--warning--solid",
-  danger: "btn--danger--solid",
-  sucess: "btn--success--solid",
+  primary: "btn--primary",
+  secondary: "btn--secondary",
+  warning: "btn--warning",
+  danger: "btn--danger",
+  sucess: "btn--success",
 };
 
 const SIZES = { medium: "btn--medium", small: "btn--small" };
 
-const Button = ({ children, type, onClick, buttonStyle, buttonSize }) => {
+const Button = ({
+  children,
+  type,
+  onClick,
+  buttonStyle,
+  buttonSize,
+  ...others
+}) => {
   //   const classBtn = buttonStyle;
+  const classDisabled = others.disabled ? "btn-disabled" : "";
   return (
     <button
-      className={`btn ${buttonStyle} ${buttonSize}`}
+      {...others}
+      className={`btn ${buttonStyle} ${buttonSize} ${classDisabled}`}
       onClick={onClick}
       type={type}
     >

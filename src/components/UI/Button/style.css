@@ -15,10 +15,20 @@
 
 /* Button colors and styles */
 
-.btn--primary--solid {
+.btn--primary {
     background-color: var(--primary);
     color: var(--white);
     border: none;
+}
+
+.btn--secondary {
+    background-color: white;
+    color: var(--primary);
+    border: none;
+}
+
+.btn-disabled {
+    color: #DCDCDF;
 }
 
 
