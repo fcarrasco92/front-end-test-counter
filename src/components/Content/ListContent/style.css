@@ -1,0 +1,13 @@
+.no-counters {
+    text-align: center;
+    height: 30px;
+    width: 300px;
+}
+
+.no-counters>h1 {
+    margin-bottom: 20px;
+}
+
+.list-content {
+    margin-top: 20px;
+}

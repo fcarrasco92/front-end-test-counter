@@ -17,10 +17,10 @@ hr {
 
 .content-information {
     height: 90%;
-    display: flex;
-    align-items: center
+    /* display: flex;
+    align-items: center */
 }
 
-.content-detail {
-    margin: 0 auto;
+.content-detail>.no-counters {
+    /* margin: 0 auto; */
 }
