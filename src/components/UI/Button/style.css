@@ -2,6 +2,7 @@
     --primary: #FF9500;
     --danger: #FF3B30;
     --white: #ffffff;
+    --gray: #C4C4C4;
 }
 
 .btn {
@@ -9,7 +10,12 @@
     font-weight: 400;
     border-radius: 8px;
     cursor: pointer;
+    border: none;
     transition: 0.3s ease;
+}
+
+.btn:focus {
+    outline: none;
 }
 
 
@@ -24,6 +30,12 @@
 .btn--secondary {
     background-color: white;
     color: var(--primary);
+    border: none;
+}
+
+.btn--gray {
+    background-color: var(--gray);
+    color: white;
     border: none;
 }
 
@@ -42,4 +54,9 @@
 .btn--medium {
     padding: 8px 24px 8px 24px;
     font-size: 17px;
+}
+
+.btn--circle {
+    border-radius: 20px;
+    padding: 4px;
 }
