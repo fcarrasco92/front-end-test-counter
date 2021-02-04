@@ -35,11 +35,9 @@ const ListContent = ({
         return (
           <ContentDetail
             key={content.id}
-            id={content.id}
-            title={content.title}
-            count={content.count}
             increaseCounter={increaseCounter}
             decreaseCounter={decreaseCounter}
+            content={content}
           />
         );
       })}

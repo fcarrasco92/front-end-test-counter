@@ -1,14 +1,25 @@
 import React from "react";
 import { Button, STYLES, SIZES } from "components/UI/Button/Button";
+import useContentDetail from "./useContentDetail";
+import Loading from "components/UI/Loading/Loading";
 import "./style.css";
 
-const ContentDetail = ({
-  id = "",
-  title = "",
-  count = 0,
-  increaseCounter,
-  decreaseCounter,
-}) => {
+const ContentDetail = ({ content }) => {
+  const {
+    contentDetailCounter,
+    increaseContentCounter,
+    decreaseContentCounter,
+    isLoading,
+  } = useContentDetail(content);
+
+  const { id, title, count } = contentDetailCounter;
+  if (isLoading) {
+    return (
+      <div className="loading">
+        <Loading />
+      </div>
+    );
+  }
   return (
     <div className="content-detail-information">
       <div className="content-title">{title}</div>
@@ -17,7 +28,7 @@ const ContentDetail = ({
           buttonStyle={STYLES.secondary}
           buttonSize={SIZES.small}
           disabled={count === 0 ? true : false}
-          onClick={() => decreaseCounter({ id })}
+          onClick={() => decreaseContentCounter({ id })}
         >
           -
         </Button>
@@ -26,7 +37,7 @@ const ContentDetail = ({
         <Button
           buttonStyle={STYLES.secondary}
           buttonSize={SIZES.small}
-          onClick={() => increaseCounter({ id })}
+          onClick={() => increaseContentCounter({ id })}
         >
           +
         </Button>

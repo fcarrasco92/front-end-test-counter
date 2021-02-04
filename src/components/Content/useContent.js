@@ -1,30 +1,17 @@
-import { useState, useEffect } from "react";
-import apiConfig from "config/apiConfig";
+import { useState, useEffect, useContext } from "react";
+import { ContentContext } from "context/ContentContext";
 
 const useContent = () => {
-  const [loading, setLoading] = useState(false);
-  const [hasError, setHasError] = useState(false);
-  const [dataContent, setDataContent] = useState([]);
   const [modalProps, setModalProps] = useState({
     show: false,
   });
-  const URL_CONTENT = apiConfig.content();
-  const loadData = async () => {
-    try {
-      setLoading(true);
-      const res = await fetch(URL_CONTENT);
-      const data = await res.json();
-      setLoading(false);
-      setDataContent(data);
-    } catch (error) {
-      setLoading(false);
-      setDataContent([]);
-      setHasError(true);
-    }
-  };
+
+  const { contentList, fetchContents, loading, hasError } = useContext(
+    ContentContext
+  );
 
   useEffect(() => {
-    loadData();
+    fetchContents();
   }, []);
 
   const increaseCounter = async ({ id }) => {
@@ -36,6 +23,7 @@ const useContent = () => {
 
     const resp = await fetch(`${URL_CONTENT}/inc`, requestOptions);
     const data = await resp.json();
+    return data;
   };
 
   const decreaseCounter = async ({ id }) => {
@@ -47,6 +35,7 @@ const useContent = () => {
 
     const resp = await fetch(`${URL_CONTENT}/dec`, requestOptions);
     const data = await resp.json();
+    return data;
   };
 
   const modalCreateContent = () => {
@@ -57,7 +46,7 @@ const useContent = () => {
 
   return {
     loading,
-    dataContent,
+    contentList,
     hasError,
     increaseCounter,
     decreaseCounter,
