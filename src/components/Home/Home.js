@@ -17,7 +17,7 @@ const Home = () => {
         </p>
       </div>
       <div className="get-started">
-        <Link to="/counter">
+        <Link to="/content">
           <Button buttonStyle={STYLES.primary} buttonSize={SIZES.medium}>
             Get started
           </Button>

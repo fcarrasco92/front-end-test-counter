@@ -24,3 +24,13 @@ hr {
 .content-detail>.no-counters {
     /* margin: 0 auto; */
 }
+
+.btn-close-modal {
+    color: white;
+    font-size: 20px;
+    border-radius: 20px;
+    padding: 3px 6px 3px 6px;
+    border: none;
+    margin: 10px;
+    cursor: pointer;
+}

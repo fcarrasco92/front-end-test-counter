@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputBox = ({ onChange, placeholder }) => {
+const InputBox = ({ onChange, placeholder, value }) => {
   const handleChange = (e) => {
     onChange(e.target.value);
   };
@@ -10,6 +10,7 @@ const InputBox = ({ onChange, placeholder }) => {
         type="text"
         placeholder={placeholder}
         onChange={handleChange}
+        value={value}
       ></input>
     </div>
   );

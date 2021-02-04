@@ -5,6 +5,9 @@ const useContent = () => {
   const [loading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
   const [dataContent, setDataContent] = useState([]);
+  const [modalProps, setModalProps] = useState({
+    show: false,
+  });
   const URL_CONTENT = apiConfig.content();
   const loadData = async () => {
     try {
@@ -46,12 +49,20 @@ const useContent = () => {
     const data = await resp.json();
   };
 
+  const modalCreateContent = () => {
+    setModalProps({
+      show: !modalProps.show,
+    });
+  };
+
   return {
     loading,
     dataContent,
     hasError,
     increaseCounter,
     decreaseCounter,
+    modalProps,
+    modalCreateContent,
   };
 };
 

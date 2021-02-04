@@ -1,9 +1,11 @@
 import React from "react";
 import Loading from "../UI/Loading/Loading";
 import InputBox from "../UI/InputBox/InputBox";
-import { Button, SIZES } from "../UI/Button/Button";
+import { Button, SIZES, STYLES } from "../UI/Button/Button";
 import useContent from "./useContent";
 import ListContent from "components/Content/ListContent/ListContent";
+import CreateContent from "components/Content/CreateContent/CreateContent";
+import Modal from "components/UI/Modal/Modal";
 import "./style.css";
 
 const Content = () => {
@@ -13,6 +15,8 @@ const Content = () => {
     hasError,
     increaseCounter,
     decreaseCounter,
+    modalProps,
+    modalCreateContent,
   } = useContent();
   return (
     <div className="section-content">
@@ -33,7 +37,14 @@ const Content = () => {
       </div>
       <hr />
       <div className="section-plus">
-        <Button buttonSize={SIZES.small}>+</Button>
+        <Button buttonSize={SIZES.small} onClick={modalCreateContent}>
+          +
+        </Button>
+      </div>
+      <div className="modal-section">
+        <Modal show={modalProps.show}>
+          <CreateContent handleClose={modalCreateContent} />
+        </Modal>
       </div>
     </div>
   );
