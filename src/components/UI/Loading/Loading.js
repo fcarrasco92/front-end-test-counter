@@ -1,11 +1,11 @@
 import React from "react";
 import "./style.css";
-import loading from "../../../assets/images/loading.svg";
 
 const Loading = () => {
   return (
-    <div className="loading">
-      <img src={loading} alt="image loading" />
+    <div className="spinner">
+      <div className="double-bounce1"></div>
+      <div className="double-bounce2"></div>
     </div>
   );
 };

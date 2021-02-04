@@ -11,7 +11,7 @@ import "./style.css";
 const Content = () => {
   const {
     loading,
-    dataContent,
+    contentList,
     hasError,
     increaseCounter,
     decreaseCounter,
@@ -27,7 +27,7 @@ const Content = () => {
             <Loading />
           ) : (
             <ListContent
-              contents={dataContent}
+              contents={contentList}
               hasError={hasError}
               increaseCounter={increaseCounter}
               decreaseCounter={decreaseCounter}
