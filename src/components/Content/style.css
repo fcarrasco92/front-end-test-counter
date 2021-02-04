@@ -34,17 +34,3 @@ hr {
     margin: 10px;
     cursor: pointer;
 }
-
-.modal-content {
-    margin: 10px;
-}
-
-.header-modal {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 10px;
-}
-
-.modal-section .modal-main {
-    top: 20%;
-}

@@ -16,6 +16,7 @@ const useContent = () => {
       const data = await res.json();
       setLoading(false);
       setDataContent(data);
+      setHasError(true);
     } catch (error) {
       setLoading(false);
       setDataContent([]);

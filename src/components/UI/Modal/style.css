@@ -10,9 +10,9 @@
 .modal-main {
     position: fixed;
     background: #ffffff;
-    width: 350px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 100%;
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
     border-radius: 15px;
 }
 
