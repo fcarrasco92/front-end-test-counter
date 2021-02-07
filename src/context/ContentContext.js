@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import apiConfig from "config/apiConfig";
 
 export const ContentContext = createContext();
@@ -8,6 +8,8 @@ export const ContentContextProvider = ({ children }) => {
   const [contentList, setContentList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
+  const [showActions, setShowActions] = useState(false);
+  const [countersSelected, setCountersSelected] = useState([]);
 
   const fetchContents = async () => {
     try {
@@ -65,6 +67,36 @@ export const ContentContextProvider = ({ children }) => {
     } catch (error) {}
   };
 
+  const deleteCounter = async (id) => {
+    try {
+      const requestOptions = {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: id }),
+      };
+
+      const resp = await fetch(`${URL_CONTENT}`, requestOptions);
+      const data = await resp.json();
+      return data;
+    } catch (error) {}
+  };
+
+  const showHideActions = () => {
+    const isShowAction = countersSelected.length > 0;
+    setShowActions(isShowAction);
+  };
+
+  useEffect(() => {
+    showHideActions();
+  }, [countersSelected]);
+
+  const deleteCountersSelected = async () => {
+    try {
+      const deletedCounters = countersSelected.map((id) => deleteCounter(id));
+      await Promise.all(deletedCounters);
+      await fetchContents();
+    } catch (error) {}
+  };
   return (
     <ContentContext.Provider
       value={{
@@ -75,6 +107,11 @@ export const ContentContextProvider = ({ children }) => {
         increaseCounter,
         decreaseCounter,
         saveCounter,
+        showActions,
+        showHideActions,
+        setCountersSelected,
+        countersSelected,
+        deleteCountersSelected,
       }}
     >
       {children}

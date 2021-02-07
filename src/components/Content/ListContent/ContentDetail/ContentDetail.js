@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Button, STYLES, SIZES } from "components/UI/Button/Button";
 import useContentDetail from "./useContentDetail";
 import Loading from "components/UI/Loading/Loading";
@@ -10,6 +10,10 @@ const ContentDetail = ({ content }) => {
     increaseContentCounter,
     decreaseContentCounter,
     isLoading,
+    showHideActions,
+    selectContentDetail,
+    contentSelected,
+    refContentDetail,
   } = useContentDetail(content);
 
   const { id, title, count } = contentDetailCounter;
@@ -21,8 +25,19 @@ const ContentDetail = ({ content }) => {
     );
   }
   return (
-    <div className="content-detail-information">
-      <div className="content-title">{title}</div>
+    <div
+      className={`content-detail-information ${
+        contentSelected ? "selected" : ""
+      }`}
+    >
+      <div
+        className="content-title"
+        id={id}
+        onClick={selectContentDetail}
+        ref={refContentDetail}
+      >
+        {title}
+      </div>
       <div className="counter-content">
         <Button
           buttonStyle={STYLES.secondary}
