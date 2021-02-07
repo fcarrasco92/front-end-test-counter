@@ -2,10 +2,9 @@ import React, { createContext, useState } from "react";
 import apiConfig from "config/apiConfig";
 
 export const ContentContext = createContext();
+const URL_CONTENT = apiConfig.content();
 
-// This context provider is passed to any component requiring the context
 export const ContentContextProvider = ({ children }) => {
-  const URL_CONTENT = apiConfig.content();
   const [contentList, setContentList] = useState([]);
   const [loading, setLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
@@ -52,6 +51,20 @@ export const ContentContextProvider = ({ children }) => {
     } catch (error) {}
   };
 
+  const saveCounter = async ({ title }) => {
+    try {
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: title }),
+      };
+
+      const resp = await fetch(`${URL_CONTENT}`, requestOptions);
+      const data = await resp.json();
+      return data;
+    } catch (error) {}
+  };
+
   return (
     <ContentContext.Provider
       value={{
@@ -61,6 +74,7 @@ export const ContentContextProvider = ({ children }) => {
         hasError,
         increaseCounter,
         decreaseCounter,
+        saveCounter,
       }}
     >
       {children}
