@@ -3,6 +3,7 @@ import { Button, SIZES, STYLES } from "components/UI/Button/Button";
 import { Input, STYLES_INPUT } from "components/UI/Input/Input";
 import useCreateContent from "./useCreateContent";
 import closeIMG from "assets/images/close.svg";
+import Loading from "components/UI/Loading/Loading";
 import "./style.css";
 
 const CreateContent = ({ handleClose }) => {
@@ -10,6 +11,8 @@ const CreateContent = ({ handleClose }) => {
     nameContent,
     onNameContentChange,
     btnCreateDisabled,
+    isLoading,
+    saveContentCounter,
   } = useCreateContent();
   return (
     <div className="modal-content">
@@ -31,7 +34,7 @@ const CreateContent = ({ handleClose }) => {
           <Button
             buttonSize={SIZES.small}
             buttonStyle={STYLES.primary}
-            onClick={() => alert("HEllo")}
+            onClick={saveContentCounter}
             disabled={btnCreateDisabled}
           >
             Save
@@ -49,6 +52,13 @@ const CreateContent = ({ handleClose }) => {
           inputStyle={STYLES_INPUT.primary}
           onChange={onNameContentChange}
         />
+        <div className="content-example">
+          <p className="content-example-title">
+            {" "}
+            Give it a name. Creative block? See examples.
+          </p>
+          {isLoading && <Loading />}
+        </div>
       </div>
     </div>
   );

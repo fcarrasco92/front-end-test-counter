@@ -1,8 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ContentContext } from "context/ContentContext";
 
 const useCreateContent = () => {
   const [nameContent, setNameContent] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const [btnCreateDisabled, setBtnCreateDisabled] = useState(true);
+  const { saveCounter } = useContext(ContentContext);
 
   useEffect(() => {
     if (nameContent === "") {
@@ -16,10 +19,20 @@ const useCreateContent = () => {
     setNameContent(value);
   };
 
+  const saveContentCounter = async () => {
+    setIsLoading(true);
+    setNameContent("");
+    const contentSavedResponse = await saveCounter({ title: nameContent });
+    console.log("contentSavedResponse ==> ", contentSavedResponse);
+    setIsLoading(false);
+  };
+
   return {
     nameContent,
     onNameContentChange,
     btnCreateDisabled,
+    isLoading,
+    saveContentCounter,
   };
 };
 
