@@ -1,6 +1,6 @@
 import React from "react";
 
-const InputBox = ({ onChange, placeholder, value }) => {
+const InputBox = ({ icon = "", onChange, placeholder, value }) => {
   const handleChange = (e) => {
     onChange(e.target.value);
   };
@@ -11,7 +11,15 @@ const InputBox = ({ onChange, placeholder, value }) => {
         placeholder={placeholder}
         onChange={handleChange}
         value={value}
-      ></input>
+      />
+      {icon && (
+        <button type="submit">
+          <img
+            src="http://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Crystal_Clear_action_viewmag.png/16px-Crystal_Clear_action_viewmag.png"
+            alt="Search"
+          />
+        </button>
+      )}
     </div>
   );
 };

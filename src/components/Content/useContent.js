@@ -6,8 +6,8 @@ const useContent = () => {
     showCreateContent: false,
     showDeleteContent: false,
   });
-
   const [copyShare, setCopyShare] = useState(false);
+  const [search, setSearch] = useState("");
 
   const {
     contentList,
@@ -25,6 +25,10 @@ const useContent = () => {
     setModalProps({
       showCreateContent: !modalProps.showCreateContent,
     });
+  };
+
+  const handleOnChange = (event) => {
+    setSearch(event.target.value);
   };
 
   const showHideCopyShare = () => {
@@ -47,6 +51,8 @@ const useContent = () => {
     copyShare,
     showHideCopyShare,
     modalConfirmDelete,
+    search,
+    handleOnChange,
   };
 };
 
