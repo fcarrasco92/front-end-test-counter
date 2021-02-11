@@ -2,12 +2,7 @@ import React from "react";
 import ContentDetail from "./ContentDetail/ContentDetail";
 import "./style.css";
 
-const ListContent = ({
-  contents = [],
-  hasError = false,
-  increaseCounter,
-  decreaseCounter,
-}) => {
+const ListContent = ({ contents = [], hasError = false }) => {
   if (contents.length === 0) {
     return (
       <div className="no-counters">
@@ -32,14 +27,7 @@ const ListContent = ({
   return (
     <div className="list-content">
       {contents.map((content) => {
-        return (
-          <ContentDetail
-            key={content.id}
-            increaseCounter={increaseCounter}
-            decreaseCounter={decreaseCounter}
-            content={content}
-          />
-        );
+        return <ContentDetail key={content.id} content={content} />;
       })}
     </div>
   );

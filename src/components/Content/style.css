@@ -2,13 +2,25 @@ hr {
     color: rgba(0, 0, 0, 0.1)
 }
 
-.section-plus {
+.section-content-actions {
+    display: flex;
+    display: -webkit-box;
+    margin: 5px;
+}
+
+.section-content-actions>div {
+    margin: 5px;
+}
+
+.content-add {
+    justify-content: flex-end;
+    align-items: flex-end;
     font-size: 20px;
 }
 
-.section-plus>button {
-    float: right;
-    margin: 15px 16px 15px 0;
+.content-add>button {
+    /* float: right; */
+    /* margin: 15px 16px 15px 0; */
 }
 
 .section-content {

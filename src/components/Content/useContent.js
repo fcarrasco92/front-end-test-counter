@@ -3,44 +3,37 @@ import { ContentContext } from "context/ContentContext";
 
 const useContent = () => {
   const [modalProps, setModalProps] = useState({
-    show: false,
+    showCreateContent: false,
+    showDeleteContent: false,
   });
 
-  const { contentList, fetchContents, loading, hasError } = useContext(
-    ContentContext
-  );
+  const [copyShare, setCopyShare] = useState(false);
+
+  const {
+    contentList,
+    fetchContents,
+    loading,
+    hasError,
+    showActions,
+  } = useContext(ContentContext);
 
   useEffect(() => {
     fetchContents();
   }, []);
 
-  const increaseCounter = async ({ id }) => {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: id }),
-    };
-
-    const resp = await fetch(`${URL_CONTENT}/inc`, requestOptions);
-    const data = await resp.json();
-    return data;
-  };
-
-  const decreaseCounter = async ({ id }) => {
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ id: id }),
-    };
-
-    const resp = await fetch(`${URL_CONTENT}/dec`, requestOptions);
-    const data = await resp.json();
-    return data;
-  };
-
   const modalCreateContent = () => {
     setModalProps({
-      show: !modalProps.show,
+      showCreateContent: !modalProps.showCreateContent,
+    });
+  };
+
+  const showHideCopyShare = () => {
+    setCopyShare(!copyShare);
+  };
+
+  const modalConfirmDelete = () => {
+    setModalProps({
+      showDeleteContent: !modalProps.showDeleteContent,
     });
   };
 
@@ -48,10 +41,12 @@ const useContent = () => {
     loading,
     contentList,
     hasError,
-    increaseCounter,
-    decreaseCounter,
     modalProps,
     modalCreateContent,
+    showActions,
+    copyShare,
+    showHideCopyShare,
+    modalConfirmDelete,
   };
 };
 

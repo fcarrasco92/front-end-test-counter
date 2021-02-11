@@ -8,6 +8,13 @@
     width: 100%;
 }
 
+.selected {
+    background-color: rgba(255, 149, 0, 0.2);
+    margin: 0 10px 0 10px;
+    border-radius: 6px;
+    color: black;
+}
+
 .content-title {
     margin: 23px 0 21px 24px;
     width: 60%;
