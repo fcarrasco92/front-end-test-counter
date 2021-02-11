@@ -3,6 +3,7 @@
     --danger: #FF3B30;
     --white: #ffffff;
     --gray: #C4C4C4;
+    --cancel: #FBFBFB;
 }
 
 .btn {
@@ -45,6 +46,12 @@
     background-color: var(--gray);
     color: white;
     border: none;
+}
+
+.btn--cancel {
+    background-color: var(--cancel);
+    color: 4A4A4A;
+    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .btn-disabled {

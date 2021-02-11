@@ -1,0 +1,18 @@
+.content-detail-total {
+    display: flex;
+}
+
+.content-total-selected {
+    color: #FF9500;
+    margin-left: 23px;
+}
+
+.content-total-text {
+    color: #4A4A4A;
+    margin-right: 7px;
+    margin-left: 23px;
+}
+
+.content-sum-text {
+    color: #888B90;
+}

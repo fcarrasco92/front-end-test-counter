@@ -10,6 +10,7 @@ const STYLES = {
   sucess: "btn--success",
   generic: "generic",
   transparent: "btn--transparent",
+  cancel: "btn--cancel",
 };
 
 const SIZES = {

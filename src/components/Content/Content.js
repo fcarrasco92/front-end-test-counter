@@ -8,6 +8,7 @@ import CreateContent from "components/Content/CreateContent/CreateContent";
 import Modal from "components/UI/Modal/Modal";
 import deleteIcon from "assets/images/delete.svg";
 import copyIcon from "assets/images/copy.svg";
+import glassIcon from "assets/images/glass.svg";
 import CopyContent from "./CopyContent/CopyContent";
 import ConfirmDelete from "./ConfirmDelete/ConfirmDelete";
 import ShowDetail from "./ShowDetail/ShowDetail";
@@ -24,12 +25,26 @@ const Content = () => {
     copyShare,
     showHideCopyShare,
     modalConfirmDelete,
+    search,
+    handleOnChange,
   } = useContent();
   const { showCreateContent, showDeleteContent } = modalProps;
 
   return (
     <div className="section-content">
-      <InputBox />
+      <input
+        className="content-search"
+        name="search"
+        value={search}
+        onChange={handleOnChange}
+        placeholder="Search Bar"
+      />
+      {search && (
+        <Button buttonStyle={STYLES.cancel} onClick={() => alert("skajska")}>
+          Cancel
+        </Button>
+      )}
+
       <div className="detail-information">
         <ShowDetail />
       </div>
