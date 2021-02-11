@@ -33,14 +33,14 @@ const ContentDetail = ({ content }) => {
       <div
         className="content-title"
         id={id}
-        onClick={selectContentDetail}
+        onClick={() => selectContentDetail({ id, title })}
         ref={refContentDetail}
       >
         {title}
       </div>
       <div className="counter-content">
         <Button
-          buttonStyle={STYLES.secondary}
+          buttonStyle={STYLES.transparent}
           buttonSize={SIZES.small}
           disabled={count === 0 ? true : false}
           onClick={() => decreaseContentCounter({ id })}
@@ -50,7 +50,7 @@ const ContentDetail = ({ content }) => {
 
         <p>{count}</p>
         <Button
-          buttonStyle={STYLES.secondary}
+          buttonStyle={STYLES.transparent}
           buttonSize={SIZES.small}
           onClick={() => increaseContentCounter({ id })}
         >

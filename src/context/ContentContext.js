@@ -10,6 +10,7 @@ export const ContentContextProvider = ({ children }) => {
   const [hasError, setHasError] = useState(false);
   const [showActions, setShowActions] = useState(false);
   const [countersSelected, setCountersSelected] = useState([]);
+  const [countSelected, setCountSelected] = useState(0);
 
   const fetchContents = async () => {
     try {
@@ -86,17 +87,26 @@ export const ContentContextProvider = ({ children }) => {
     setShowActions(isShowAction);
   };
 
+  const countOfCountersSelected = () => {
+    const countCounters = countersSelected.length || 0;
+    setCountSelected(countCounters);
+  };
+
   useEffect(() => {
     showHideActions();
+    countOfCountersSelected();
   }, [countersSelected]);
 
   const deleteCountersSelected = async () => {
     try {
-      const deletedCounters = countersSelected.map((id) => deleteCounter(id));
+      const deletedCounters = countersSelected.map((counter) =>
+        deleteCounter(counter.id)
+      );
       await Promise.all(deletedCounters);
       await fetchContents();
     } catch (error) {}
   };
+
   return (
     <ContentContext.Provider
       value={{
@@ -112,6 +122,8 @@ export const ContentContextProvider = ({ children }) => {
         setCountersSelected,
         countersSelected,
         deleteCountersSelected,
+        countOfCountersSelected,
+        countSelected,
       }}
     >
       {children}

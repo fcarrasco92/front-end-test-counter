@@ -9,6 +9,7 @@ const STYLES = {
   danger: "btn--danger",
   sucess: "btn--success",
   generic: "generic",
+  transparent: "btn--transparent",
 };
 
 const SIZES = {

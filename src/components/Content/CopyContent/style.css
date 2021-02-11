@@ -1,0 +1,24 @@
+.copy-content-container {
+    display: flex;
+    position: relative;
+    bottom: 180px;
+}
+
+.copy-content-form {
+    z-index: 1;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    background: #FAFAFA;
+    max-width: 370px;
+    transform: translateY(-4%);
+    width: 309px;
+    height: 121px;
+    box-shadow: 0px 24px 38px rgba(0, 0, 0, 0.14);
+    border-radius: 10px;
+    left: 40px;
+}
+
+.copy-content-button {
+    margin-top: 13px;
+}

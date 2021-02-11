@@ -33,12 +33,13 @@ const useContentDetail = (content) => {
     setIsLoading(false);
   };
 
-  const selectContentDetail = () => {
-    const { id } = refContentDetail.current;
-    if (countersSelected.includes(id)) {
-      setCountersSelected(countersSelected.filter((counter) => counter !== id));
+  const selectContentDetail = ({ id, title }) => {
+    if (countersSelected.some((counter) => counter.id === id)) {
+      setCountersSelected(
+        countersSelected.filter((counter) => counter.id !== id)
+      );
     } else {
-      setCountersSelected([...countersSelected, id]);
+      setCountersSelected([...countersSelected, { id, title }]);
     }
     setContentSelected(!contentSelected);
   };

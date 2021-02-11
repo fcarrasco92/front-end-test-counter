@@ -8,6 +8,9 @@ import CreateContent from "components/Content/CreateContent/CreateContent";
 import Modal from "components/UI/Modal/Modal";
 import deleteIcon from "assets/images/delete.svg";
 import copyIcon from "assets/images/copy.svg";
+import CopyContent from "./CopyContent/CopyContent";
+import ConfirmDelete from "./ConfirmDelete/ConfirmDelete";
+import ShowDetail from "./ShowDetail/ShowDetail";
 import "./style.css";
 
 const Content = () => {
@@ -18,11 +21,18 @@ const Content = () => {
     modalProps,
     modalCreateContent,
     showActions,
-    deleteCountersSelected,
+    copyShare,
+    showHideCopyShare,
+    modalConfirmDelete,
   } = useContent();
+  const { showCreateContent, showDeleteContent } = modalProps;
+
   return (
     <div className="section-content">
       <InputBox />
+      <div className="detail-information">
+        <ShowDetail />
+      </div>
       <div className="content-information">
         <div className="content-detail">
           {loading ? (
@@ -40,7 +50,7 @@ const Content = () => {
               <Button
                 buttonSize={SIZES.small}
                 buttonStyle={STYLES.secondary}
-                onClick={deleteCountersSelected}
+                onClick={modalConfirmDelete}
               >
                 <img src={deleteIcon} alt="image delete" />
               </Button>
@@ -49,7 +59,7 @@ const Content = () => {
               <Button
                 buttonSize={SIZES.small}
                 buttonStyle={STYLES.secondary}
-                onClick={() => alert("copy")}
+                onClick={showHideCopyShare}
               >
                 <img src={copyIcon} alt="image delete" />
               </Button>
@@ -62,10 +72,16 @@ const Content = () => {
           </Button>
         </div>
       </div>
+      {copyShare && <CopyContent />}
 
       <div className="modal-section">
-        <Modal show={modalProps.show}>
+        <Modal show={showCreateContent}>
           <CreateContent handleClose={modalCreateContent} />
+        </Modal>
+      </div>
+      <div className="modal-delete">
+        <Modal show={showDeleteContent}>
+          <ConfirmDelete handleClose={modalConfirmDelete} />
         </Modal>
       </div>
     </div>

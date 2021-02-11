@@ -3,8 +3,11 @@ import { ContentContext } from "context/ContentContext";
 
 const useContent = () => {
   const [modalProps, setModalProps] = useState({
-    show: false,
+    showCreateContent: false,
+    showDeleteContent: false,
   });
+
+  const [copyShare, setCopyShare] = useState(false);
 
   const {
     contentList,
@@ -12,7 +15,6 @@ const useContent = () => {
     loading,
     hasError,
     showActions,
-    deleteCountersSelected,
   } = useContext(ContentContext);
 
   useEffect(() => {
@@ -21,7 +23,17 @@ const useContent = () => {
 
   const modalCreateContent = () => {
     setModalProps({
-      show: !modalProps.show,
+      showCreateContent: !modalProps.showCreateContent,
+    });
+  };
+
+  const showHideCopyShare = () => {
+    setCopyShare(!copyShare);
+  };
+
+  const modalConfirmDelete = () => {
+    setModalProps({
+      showDeleteContent: !modalProps.showDeleteContent,
     });
   };
 
@@ -32,7 +44,9 @@ const useContent = () => {
     modalProps,
     modalCreateContent,
     showActions,
-    deleteCountersSelected,
+    copyShare,
+    showHideCopyShare,
+    modalConfirmDelete,
   };
 };
 
