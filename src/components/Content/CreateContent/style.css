@@ -17,3 +17,9 @@
 .modal-content-main {
     height: 100%;
 }
+
+.link-show-example {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}

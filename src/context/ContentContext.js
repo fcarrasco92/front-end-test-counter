@@ -11,6 +11,7 @@ export const ContentContextProvider = ({ children }) => {
   const [showActions, setShowActions] = useState(false);
   const [countersSelected, setCountersSelected] = useState([]);
   const [countSelected, setCountSelected] = useState(0);
+  const [exampleText, setExampleText] = useState("");
 
   const fetchContents = async () => {
     try {
@@ -125,6 +126,8 @@ export const ContentContextProvider = ({ children }) => {
         deleteCountersSelected,
         countOfCountersSelected,
         countSelected,
+        exampleText,
+        setExampleText,
       }}
     >
       {children}
