@@ -8,6 +8,7 @@ const useContent = () => {
   });
   const [copyShare, setCopyShare] = useState(false);
   const [search, setSearch] = useState("");
+  const [contentListFilter, setContentListFilter] = useState([]);
 
   const {
     contentList,
@@ -17,8 +18,9 @@ const useContent = () => {
     showActions,
   } = useContext(ContentContext);
 
-  useEffect(() => {
-    fetchContents();
+  useEffect(async () => {
+    const data = await fetchContents();
+    setContentListFilter(data);
   }, []);
 
   const modalCreateContent = () => {
@@ -31,8 +33,23 @@ const useContent = () => {
     setSearch(event.target.value);
   };
 
+  useEffect(() => {
+    if (search !== "") {
+      const dataFilter = contentList.filter((content) =>
+        content.title.toLowerCase().includes(search.toLowerCase())
+      );
+      setContentListFilter(dataFilter);
+    } else {
+      setContentListFilter(contentList);
+    }
+  }, [search]);
+
   const showHideCopyShare = () => {
     setCopyShare(!copyShare);
+  };
+
+  const cleanSearch = () => {
+    setSearch("");
   };
 
   const modalConfirmDelete = () => {
@@ -53,6 +70,8 @@ const useContent = () => {
     modalConfirmDelete,
     search,
     handleOnChange,
+    contentListFilter,
+    cleanSearch,
   };
 };
 
