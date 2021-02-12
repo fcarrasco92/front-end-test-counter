@@ -47,6 +47,10 @@ hr {
     cursor: pointer;
 }
 
+.section-content-search {
+    display: flex;
+}
+
 .content-search {
     background: #FFFFFF;
     border: 1px solid rgba(0, 0, 0, 0.02);
@@ -56,4 +60,9 @@ hr {
     margin: 16px;
     width: 100%;
     font-size: 20px;
+}
+
+.content-search-button {
+    font-size: 20px;
+    margin-top: 20px;
 }

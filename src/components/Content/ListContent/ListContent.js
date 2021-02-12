@@ -2,8 +2,8 @@ import React from "react";
 import ContentDetail from "./ContentDetail/ContentDetail";
 import "./style.css";
 
-const ListContent = ({ contents = [], hasError = false }) => {
-  if (contents.length === 0) {
+const ListContent = ({ contents = [], hasError = false, search = "" }) => {
+  if (contents.length === 0 && search === "") {
     return (
       <div className="no-counters">
         <h1>No counters yet</h1>
@@ -20,6 +20,14 @@ const ListContent = ({ contents = [], hasError = false }) => {
       <div className="no-counters">
         <h1>Couldn’t load the counters</h1>
         <p>The Internet connection appears to be offline.</p>
+      </div>
+    );
+  }
+
+  if (search !== "" && contents.length === 0) {
+    return (
+      <div className="">
+        <p>No results</p>
       </div>
     );
   }

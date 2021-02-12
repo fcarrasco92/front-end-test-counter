@@ -19,6 +19,7 @@ export const ContentContextProvider = ({ children }) => {
       const data = await res.json();
       setLoading(false);
       setContentList(data);
+      return data;
     } catch (error) {
       setLoading(false);
       setContentList([]);

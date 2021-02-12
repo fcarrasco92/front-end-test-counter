@@ -50,7 +50,7 @@
 
 .btn--cancel {
     background-color: var(--cancel);
-    color: 4A4A4A;
+    color: #4A4A4A;
     border: 1px solid rgba(0, 0, 0, 0.1);
 }
 

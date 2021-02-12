@@ -27,24 +27,29 @@ const Content = () => {
     modalConfirmDelete,
     search,
     handleOnChange,
+    contentListFilter,
+    cleanSearch,
   } = useContent();
   const { showCreateContent, showDeleteContent } = modalProps;
 
   return (
     <div className="section-content">
-      <input
-        className="content-search"
-        name="search"
-        value={search}
-        onChange={handleOnChange}
-        placeholder="Search Bar"
-      />
-      {search && (
-        <Button buttonStyle={STYLES.cancel} onClick={() => alert("skajska")}>
-          Cancel
-        </Button>
-      )}
-
+      <div className="section-content-search">
+        <input
+          className="content-search"
+          name="search"
+          value={search}
+          onChange={handleOnChange}
+          placeholder="Search Bar"
+        />
+        {search && (
+          <div className="content-search-button">
+            <Button buttonStyle={STYLES.cancel} onClick={cleanSearch}>
+              Cancel
+            </Button>
+          </div>
+        )}
+      </div>
       <div className="detail-information">
         <ShowDetail />
       </div>
@@ -53,7 +58,11 @@ const Content = () => {
           {loading ? (
             <Loading />
           ) : (
-            <ListContent contents={contentList} hasError={hasError} />
+            <ListContent
+              contents={contentListFilter}
+              search={search}
+              hasError={hasError}
+            />
           )}
         </div>
       </div>
