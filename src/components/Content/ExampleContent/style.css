@@ -1,0 +1,47 @@
+.modal-content-example {
+    margin: 10px;
+}
+
+.header-modal-example {
+    display: flex;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.modal-section .modal-main {
+    top: 20%;
+    height: 100%;
+    width: 100%;
+}
+
+.modal-content-main {
+    height: 100%;
+}
+
+.modal-title-example {
+    margin: 0 auto;
+}
+
+.content-paragraph {
+    color: #888B90;
+    margin-top: 28px;
+}
+
+.pill-examples {
+    width: auto;
+    margin-top: 20px;
+}
+
+.pill-section-title {
+    margin-bottom: 9px;
+}
+
+.example-suggest {
+    text-align: center;
+    margin-right: 16px;
+}
+
+.pill-section-detail {
+    overflow: auto;
+    display: -webkit-box;
+}

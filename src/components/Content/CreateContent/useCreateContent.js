@@ -5,7 +5,13 @@ const useCreateContent = () => {
   const [nameContent, setNameContent] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [btnCreateDisabled, setBtnCreateDisabled] = useState(true);
-  const { saveCounter } = useContext(ContentContext);
+  const [modalProps, setModalProps] = useState({
+    showExampleContent: false,
+  });
+  const { saveCounter, exampleText } = useContext(ContentContext);
+  useEffect(() => {
+    setNameContent(exampleText);
+  }, [exampleText]);
 
   useEffect(() => {
     if (nameContent === "") {
@@ -23,8 +29,13 @@ const useCreateContent = () => {
     setIsLoading(true);
     setNameContent("");
     const contentSavedResponse = await saveCounter({ title: nameContent });
-    console.log("contentSavedResponse ==> ", contentSavedResponse);
     setIsLoading(false);
+  };
+
+  const modalExampleContent = () => {
+    setModalProps({
+      showExampleContent: !modalProps.showExampleContent,
+    });
   };
 
   return {
@@ -33,6 +44,8 @@ const useCreateContent = () => {
     btnCreateDisabled,
     isLoading,
     saveContentCounter,
+    modalProps,
+    modalExampleContent,
   };
 };
 
